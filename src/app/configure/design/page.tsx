@@ -31,7 +31,7 @@ async function Page({ searchParams }: PageProps) {
             <DesignConfigurator
                 configId={configuration.id}
                 imageUrl={imageUrl}
-                imageDimension={{ width, height }}
+                imageDimensions={{ width, height }}
             />
         </div>
     )
