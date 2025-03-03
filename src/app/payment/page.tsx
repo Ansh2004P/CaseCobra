@@ -49,21 +49,21 @@ export default function CheckoutPage() {
     const id = searchParams.get("id");
 
 
-    // useEffect(() => {
-    //     const savedShipping = localStorage.getItem("shippingAddress");
-    //     const savedBilling = localStorage.getItem("billingAddress");
-    //     const savedSameAsShipping = localStorage.getItem("sameAsShipping");
+    useEffect(() => {
+        const savedShipping = localStorage.getItem("shippingAddress");
+        const savedBilling = localStorage.getItem("billingAddress");
+        const savedSameAsShipping = localStorage.getItem("sameAsShipping");
 
-    //     if (savedShipping) {
-    //         setShippingAddress(JSON.parse(savedShipping));
-    //     }
-    //     if (savedBilling) {
-    //         setBillingAddress(JSON.parse(savedBilling));
-    //     }
-    //     if (savedSameAsShipping) {
-    //         setSameAsShipping(JSON.parse(savedSameAsShipping));
-    //     }
-    // }, [id]);
+        if (savedShipping) {
+            setShippingAddress(JSON.parse(savedShipping));
+        }
+        if (savedBilling) {
+            setBillingAddress(JSON.parse(savedBilling));
+        }
+        if (savedSameAsShipping) {
+            setSameAsShipping(JSON.parse(savedSameAsShipping));
+        }
+    }, [id]);
 
     useEffect(() => {
         localStorage.setItem("shippingAddress", JSON.stringify(shippingAddress));
