@@ -25,20 +25,20 @@ interface Address {
 
 export default function CheckoutPage() {
     const [shippingAddress, setShippingAddress] = useState<Address>({
-        name: "safsfa",
-        street: "asfasf",
-        city: "asffaf",
-        state: "asfsfafsf",
-        postalCode: "123456",
-        country: "India",
+        name: "",
+        street: "",
+        city: "",
+        state: "",
+        postalCode: "",
+        country: "",
     });
     const [billingAddress, setBillingAddress] = useState<Address>({
-        name: "safsfa",
-        street: "asfasf",
-        city: "asffaf",
-        state: "asfsfafsf",
-        postalCode: "123456",
-        country: "India",
+        name: "",
+        street: "",
+        city: "",
+        state: "",
+        postalCode: "",
+        country: "",
     });
     const [sameAsShipping, setSameAsShipping] = useState(true);
     const [error, setError] = useState("");
