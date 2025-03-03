@@ -50,7 +50,7 @@ const PhonePreview = ({
                 <img
                     width={renderedDimensions.width / (3000 / 637)}
                     className={cn(
-                        'phone-skew relative z-20 rounded-t-[15px] rounded-b-[10px] md:rounded-t-[30px] md:rounded-b-[20px]',
+                        'phone-skew relative z-20 rounded-t-[15px] rounded-b-[10px] md:rounded-t-[30px] md:rounded-b-[20px] -rotate-z-[10deg] rotate-y-5 -rotate-x-5 scale-[1.016]',
                         caseBackgroundColor
                     )}
                     src={croppedImageUrl}
@@ -61,7 +61,7 @@ const PhonePreview = ({
                 <img
                     alt='phone'
                     src='/clearphone.png'
-                    className='pointer-events-none h-full w-full antialiased rounded-md'
+                    className='pointer-events-none h-full w-full antialiased rounded-md tranform rotate-3'
                 />
             </div>
         </AspectRatio>
