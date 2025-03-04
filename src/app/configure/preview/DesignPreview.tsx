@@ -45,11 +45,8 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
 
     const handleCheckout = () => {
         if (user) {
-            // create Razorpay payment session
-            // createPaymentSession({ configId: id });
             router.push(`/payment?id=${id}`)
         } else {
-            // If not logged in, prompt login
             localStorage.setItem('configurationId', id);
             setIsLoginModalOpen(true);
         }

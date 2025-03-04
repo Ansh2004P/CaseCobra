@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React, { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, { ChangeEvent, Dispatch, SetStateAction, Suspense, useEffect, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { createCheckoutSession } from "./actions";
@@ -23,7 +23,12 @@ interface Address {
     country: string;
 }
 
-export default function CheckoutPage() {
+interface CheckoutProps {
+    searchParams: URLSearchParams;
+}
+
+
+const CheckoutForm = ({ searchParams }: CheckoutProps) => {
     const [shippingAddress, setShippingAddress] = useState<Address>({
         name: "",
         street: "",
@@ -44,7 +49,6 @@ export default function CheckoutPage() {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
-    const searchParams = useSearchParams();
     const router = useRouter();
     const id = searchParams.get("id");
 
@@ -406,3 +410,19 @@ export default function CheckoutPage() {
         </div>
     );
 }
+
+const CheckoutPage = () => {
+    return (
+        <Suspense fallback={<div className="text-center p-10">Loading checkout...</div>}>
+            <SearchParamsWrapper />
+        </Suspense>
+    );
+};
+
+const SearchParamsWrapper = () => {
+    const searchParams = useSearchParams();
+    return <CheckoutForm searchParams={searchParams} />;
+};
+
+
+export default CheckoutPage;

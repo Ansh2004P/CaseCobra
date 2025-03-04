@@ -3,9 +3,7 @@ import { notFound } from "next/navigation";
 import DesignPreview from "./DesignPreview";
 
 interface PageProps {
-    searchParams: {
-        [key: string]: string | string[] | undefined
-    }
+    searchParams: Promise<Record<string, string | string[] | undefined>>
 }
 
 const Page = async ({ searchParams }: PageProps) => {

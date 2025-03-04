@@ -17,7 +17,7 @@ const Page = () => {
 
     const { startUpload, isUploading } = useUploadThing('imageUploader', {
         onClientUploadComplete: ([data]) => {
-            console.log(data)
+            // console.log(data)
             const configId = data.serverData.configId
             toast.success('Upload successful!')
             startTransition(() => {

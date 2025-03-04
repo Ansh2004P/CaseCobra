@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Icons } from "@/components/Icons";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Phone from "@/components/Phone";
@@ -8,10 +9,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="bg-slate-50 grainy-light">
-
 
       <section aria-labelledby="hero-section">
         <MaxWidthWrapper className="pb-24 pt-10 lg:grid lg:grid-cols-3 sm:pb-32 lg:gap-x-0 xl:gap-x-8 lg:pt-24 xl:pt-28 lg:pb-52">
@@ -88,7 +88,6 @@ export default function Home() {
                         className='h-4 w-4 text-green-600 fill-green-600' />
                     ))}
                   </div>
-
                   <p>
                     <span className='font-semibold'>1000+</span> happy customers
                   </p>
@@ -233,12 +232,14 @@ export default function Home() {
           <div className='mx-auto max-w-6xl px-6 lg:px-8'>
             <div className='relative flex flex-col items-center md:grid grid-cols-2 gap-40'>
               <img
+                alt="arrow"
                 src='/arrow.png'
                 className='absolute top-[25rem] md:top-1/2 -translate-y-1/2 z-10 left-1/2 -translate-x-1/2 rotate-90 md:rotate-0'
               />
 
               <div className='relative h-80 md:h-full w-full md:justify-self-end max-w-sm rounded-xl bg-gray-900/5 ring-inset ring-gray-900/10 lg:rounded-2xl'>
                 <img
+                  alt="horse"
                   src='/horse.jpg'
                   className='rounded-md object-cover bg-white shadow-2xl ring-1 ring-gray-900/10 h-full w-full'
                 />
@@ -282,3 +283,5 @@ export default function Home() {
     </div >
   );
 }
+
+export default Home;
