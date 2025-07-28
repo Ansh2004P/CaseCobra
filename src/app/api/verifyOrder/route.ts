@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
         },
     })
 
-    console.log(updatedOrder);
+    // console.log(updatedOrder);
 
 
     return NextResponse.json(

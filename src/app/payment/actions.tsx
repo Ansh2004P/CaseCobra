@@ -92,7 +92,7 @@ export const createCheckoutSession = async ({
         },
     });
 
-    console.log(razorpayOrder.id)
+    // console.log(razorpayOrder.id)
     return {
         orderDetails: {
             id: razorpayOrder.id,

@@ -46,7 +46,7 @@ const ThankYou = () => {
 
     const { configuration, billingAddress, shippingAddress, amount } = data
     const { color } = configuration
-    console.log(configuration)
+    // console.log(configuration)
 
     return (
         <div className='bg-white'>
