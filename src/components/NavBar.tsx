@@ -26,7 +26,9 @@ const Navbar = async () => {
                   className={buttonVariants({
                     size: 'sm',
                     variant: 'ghost',
-                  })}>
+                  })}
+                  prefetch={false} // prevents Next.js from trying to prefetch as a page
+                >
                   Sign out
                 </Link>
                 {isAdmin ? (
@@ -35,7 +37,9 @@ const Navbar = async () => {
                     className={buttonVariants({
                       size: 'sm',
                       variant: 'ghost',
-                    })}>
+                    })}
+                    prefetch={false} // prevents Next.js from trying to prefetch as a page
+                  >
                     Dashboard ✨
                   </Link>
                 ) : null}
@@ -56,7 +60,9 @@ const Navbar = async () => {
                   className={buttonVariants({
                     size: 'sm',
                     variant: 'ghost',
-                  })}>
+                  })}
+                  prefetch={false} // prevents Next.js from trying to prefetch as a page
+                >
                   Sign up
                 </Link>
 
@@ -65,7 +71,9 @@ const Navbar = async () => {
                   className={buttonVariants({
                     size: 'sm',
                     variant: 'ghost',
-                  })}>
+                  })}
+                  prefetch={false} // prevents Next.js from trying to prefetch as a page
+                >
                   Login
                 </Link>
 
