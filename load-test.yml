@@ -1,0 +1,55 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 60
+      arrivalRate: 5
+  processor: "./get-token.mjs"
+
+scenarios:
+  - flow:
+      # Step 1: Upload image
+      - post:
+          url: "/configure/upload"
+          json:
+            fileName: "test.png"
+            fileType: "image/png"
+          capture:
+            json: "$.serverData.configId"
+            as: "configId"
+      
+      # Step 2: Design
+      - get:
+          url: "/configure/design?id={{ configId }}"
+
+      # Step 3: Preview (no auth yet)
+      - get:
+          url: "/configure/preview?id={{ configId }}"
+
+      # Step 4: Fetch token (auth needed from here)
+      - function: "getAccessToken"
+
+      # Step 5: Payment
+      - post:
+          url: "/payment?id={{ configId }}"
+          headers:
+            Authorization: "Bearer {{ accessToken }}"
+          json:
+            name: "Test User"
+            street: "123 Main St"
+            city: "New York"
+            state: "NY"
+            postalCode: "10001"
+            country: "USA"
+
+      # Step 6: Verify Razorpay
+      - post:
+          url: "/api/verifyOrder"
+          headers:
+            Authorization: "Bearer {{ accessToken }}"
+          json:
+            orderId: "test-order-123"
+            paymentStatus: "success"
+
+      # Step 7: Thank You
+      - get:
+          url: "/thank-you?orderId=test-order-123"
